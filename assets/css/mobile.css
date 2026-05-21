@@ -1,0 +1,82 @@
+/* ============================================
+   NOXARA - Mobile Responsive
+   ============================================ */
+
+/* Safe area for bottom nav */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .bottom-nav {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  .main-content {
+    padding-bottom: calc(64px + env(safe-area-inset-bottom) + 24px);
+  }
+}
+
+/* Touch targets minimum 44px */
+button, a, input[type="checkbox"], input[type="radio"], .nav-item, .menu-item, .profile-menu-item, .tab-item {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Prevent text zoom on iOS */
+input, select, textarea {
+  font-size: 16px;
+}
+
+/* Landscape tweaks */
+@media (orientation: landscape) and (max-height: 500px) {
+  .bottom-nav { height: 52px; }
+  .nav-item { gap: 2px; font-size: 0.6rem; }
+  .nav-fab { margin-top: -14px; }
+  .fab-circle { width: 44px; height: 44px; }
+  .main-content { padding-top: calc(48px + 8px); padding-bottom: calc(52px + 16px); }
+  .top-bar { height: 48px; }
+  .saldo-card { padding: 16px; }
+  .auth-card { padding: 20px 16px; }
+}
+
+/* Small screens < 360px */
+@media (max-width: 359px) {
+  :root { --topbar-height: 48px; --nav-height: 56px; }
+  body { font-size: 14px; }
+  .main-content { padding-left: 12px; padding-right: 12px; }
+  .menu-grid { grid-template-columns: repeat(4, 1fr); gap: 6px; }
+  .menu-item { padding: 8px 4px; font-size: 0.6rem; }
+  .menu-icon { width: 30px; height: 30px; }
+  .saldo-amount { font-size: 1.4rem; }
+  .saldo-actions { gap: 6px; }
+  .saldo-btn { padding: 8px 4px; font-size: 0.65rem; }
+  .products-grid { gap: 6px; }
+  .product-card { padding: 12px; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .topup-presets { grid-template-columns: repeat(2, 1fr); }
+  .pin-box { width: 40px; height: 48px; font-size: 1rem; }
+  .pin-input-group { gap: 6px; }
+  .btn { padding: 10px 16px; font-size: 0.8rem; }
+  .fab-sheet-grid { grid-template-columns: repeat(3, 1fr); }
+  h1 { font-size: 1.4rem; }
+  h2 { font-size: 1.2rem; }
+  h3 { font-size: 1.05rem; }
+}
+
+/* Standard mobile 360-430px */
+@media (min-width: 360px) and (max-width: 430px) {
+  .main-content { padding-left: 14px; padding-right: 14px; }
+}
+
+/* Disable hover effects on touch */
+@media (hover: none) {
+  .card:hover { box-shadow: none; transform: none; }
+  .product-card:hover { transform: none; }
+  .tilt-3d:hover { transform: none; }
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .scroll-reveal { opacity: 1; transform: none; }
+}
