@@ -9,7 +9,7 @@ define('DB_HOST', 'localhost');
 define('DB_PORT', 3306);
 define('DB_NAME', 'noxara_oke12');
 define('DB_USER', 'noxara_Oke12');
-define('DB_PASS', 'GANTI_PASSWORD_DATABASE');
+define('DB_PASS', 'Jakakece12');
 
 // Site
 define('BASE_URL', 'https://noxara.page');
