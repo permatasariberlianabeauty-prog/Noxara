@@ -1,0 +1,135 @@
+/* ============================================
+   NOXARA - Premium / Luxury Effects
+   ============================================ */
+
+/* Liquid Wave */
+.liquid-wave {
+  position: relative;
+  overflow: hidden;
+}
+.liquid-wave::after {
+  content: '';
+  position: absolute;
+  bottom: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(ellipse at center, rgba(0,212,255,0.05) 0%, transparent 70%);
+  animation: float 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Holographic */
+.holographic {
+  position: relative;
+  overflow: hidden;
+}
+.holographic::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(0, 212, 255, 0.1) 45%,
+    rgba(123, 47, 255, 0.1) 50%,
+    rgba(255, 215, 0, 0.1) 55%,
+    transparent 60%
+  );
+  background-size: 200% 100%;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+.holographic:hover::before {
+  opacity: 1;
+  animation: shimmer 1.5s ease forwards;
+}
+
+/* Neon Glow */
+.neon-glow {
+  text-shadow:
+    0 0 7px rgba(0, 212, 255, 0.6),
+    0 0 10px rgba(0, 212, 255, 0.4),
+    0 0 21px rgba(0, 212, 255, 0.2);
+}
+
+/* Frosted Glass */
+.frosted-glass {
+  background: rgba(15, 22, 41, 0.4);
+  backdrop-filter: blur(24px) saturate(1.2);
+  -webkit-backdrop-filter: blur(24px) saturate(1.2);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+/* Gradient Border */
+.gradient-border {
+  position: relative;
+  border-radius: var(--radius-lg);
+  padding: 1px;
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple), var(--accent-gold));
+  background-size: 300% 300%;
+  animation: shimmer 4s ease infinite;
+}
+.gradient-border > * {
+  background: var(--bg-card);
+  border-radius: calc(var(--radius-lg) - 1px);
+}
+
+/* Tilt 3D */
+.tilt-3d {
+  transition: transform 0.3s ease;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+@media (hover: hover) {
+  .tilt-3d:hover {
+    transform: rotateX(2deg) rotateY(2deg) scale(1.02);
+  }
+}
+
+/* Particle Background */
+.particle-bg {
+  position: relative;
+  overflow: hidden;
+}
+.particle-bg::before,
+.particle-bg::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent-cyan);
+  opacity: 0.3;
+  animation: float 4s ease-in-out infinite;
+}
+.particle-bg::before {
+  top: 20%;
+  left: 15%;
+  animation-delay: 0s;
+}
+.particle-bg::after {
+  top: 60%;
+  right: 20%;
+  animation-delay: 2s;
+  background: var(--accent-purple);
+}
+
+/* Light Theme Override */
+.theme-light {
+  --bg-primary: #F5F7FA;
+  --bg-secondary: #FFFFFF;
+  --bg-card: #FFFFFF;
+  --bg-elevated: #F0F2F5;
+  --bg-input: #E8ECF0;
+  --bg-overlay: rgba(245, 247, 250, 0.9);
+  --text-primary: #1A202C;
+  --text-secondary: #4A5568;
+  --text-muted: #A0AEC0;
+  --border-color: rgba(0, 0, 0, 0.08);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
